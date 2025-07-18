@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class EnrollmentController extends Controller
             'enrolled_at' => now(),
         ]);
 
-        return response()->json($enrollment, 201);
+        return response()->json(['message' => 'Inscripción realizada correctamente', 'datos' => $enrollment], 201);
     }
 
     public function index(Request $request)

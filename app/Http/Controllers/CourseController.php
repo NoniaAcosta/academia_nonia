@@ -28,7 +28,7 @@ class CourseController extends Controller
         ]);
 
         $student = Course::create($validated);
-        return response()->json($student, 201);
+        return response()->json(['message' => 'Registro insertado correctamente', 'datos' => $student], 201);
     }
 
     /**
@@ -54,14 +54,14 @@ class CourseController extends Controller
         }
 
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after_or_equal:start_date',
+            'title' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'start_date' => 'sometimes|date',
+            'end_date' => 'sometimes|date|after_or_equal:start_date'
         ]);
 
         $student->update($validated);
-        return response()->json($student, 200);
+        return response()->json(['message' => 'Registro actualizado correctamente', 'datos' => $student], 200);
     }
 
     /**

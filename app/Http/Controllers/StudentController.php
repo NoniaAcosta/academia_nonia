@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class StudentController extends Controller
         ]);
 
         $student = Student::create($validated);
-        return response()->json($student, 201);
+        return response()->json(['message' => 'Registro insertado correctamente', 'registro' => $student], 201);
     }
 
     /**
@@ -60,7 +61,7 @@ class StudentController extends Controller
         ]);
 
         $student->update($validated);
-        return response()->json($student, 200);
+        return response()->json(['message' => 'Registro actualizado correctamente', 'datos' => $student], 200);
     }
 
     /**
