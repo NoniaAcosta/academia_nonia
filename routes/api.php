@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::apiResource('students', StudentController::class);
+Route::apiResource('courses', CourseController::class);
+Route::post('/enrollments', [EnrollmentController::class, 'store']);
+Route::get('/enrollments', [EnrollmentController::class, 'index']);
+Route::delete('/enrollments/{id}', [EnrollmentController::class, 'destroy']);
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::apiResource('students', StudentController::class);
+// });
