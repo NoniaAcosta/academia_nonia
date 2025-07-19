@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CourseController extends Controller
 {
@@ -26,9 +27,18 @@ class CourseController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
         ]);
-
-        $student = Course::create($validated);
-        return response()->json(['message' => 'Registro insertado correctamente', 'datos' => $student], 201);
+        if (Course::existeDuplicado($validated)) {
+            return response()->json([
+                'message' => 'Ya existe un curso con estos datos.'
+            ], 422);
+        }
+        try {
+            $course = Course::create($validated);
+            return response()->json(['message' => 'Registro insertado correctamente', 'data' => $course], 201);
+        } catch (\Exception $e) {
+            Log::error('Error al crear curso: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al guardar el curso.'], 500);
+        }
     }
 
     /**
@@ -36,11 +46,11 @@ class CourseController extends Controller
      */
     public function show(string $id)
     {
-        $student = Course::find($id);
-        if (!$student) {
+        $course = Course::find($id);
+        if (!$course) {
             return response()->json(['message' => 'Curso no encontrado'], 404);
         }
-        return response()->json($student, 200);
+        return response()->json($course, 200);
     }
 
     /**
@@ -48,8 +58,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $student = Course::find($id);
-        if (!$student) {
+        $course = Course::find($id);
+        if (!$course) {
             return response()->json(['message' => 'Curso no encontrado'], 404);
         }
 
@@ -59,9 +69,18 @@ class CourseController extends Controller
             'start_date' => 'sometimes|date',
             'end_date' => 'sometimes|date|after_or_equal:start_date'
         ]);
-
-        $student->update($validated);
-        return response()->json(['message' => 'Registro actualizado correctamente', 'datos' => $student], 200);
+        if (Course::existeDuplicado($validated, $id)) {
+            return response()->json([
+                'message' => 'Ya existe un curso con estos datos.'
+            ], 422);
+        }
+        try {
+            $course->update($validated);
+            return response()->json(['message' => 'Registro actualizado correctamente', 'data' => $course], 200);
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar curso: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al actualizar el curso.'], 500);
+        }
     }
 
     /**
@@ -69,12 +88,16 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        $student = Course::find($id);
-        if (!$student) {
+        $course = Course::find($id);
+        if (!$course) {
             return response()->json(['message' => 'Curso no encontrado'], 404);
         }
-
-        $student->delete();
-        return response()->json(['message' => 'Curso eliminado'], 200);
+        try {
+            $course->delete();
+            return response()->json(['message' => 'Curso eliminado'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar curso: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al eliminar el curso.'], 500);
+        }
     }
 }

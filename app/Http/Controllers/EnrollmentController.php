@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EnrollmentController extends Controller
 {
@@ -19,8 +20,12 @@ class EnrollmentController extends Controller
             'course_id' => $request->course_id,
             'enrolled_at' => now(),
         ]);
-
-        return response()->json(['message' => 'Inscripción realizada correctamente', 'datos' => $enrollment], 201);
+        try {
+            return response()->json(['message' => 'Inscripción realizada correctamente', 'data' => $enrollment], 201);
+        } catch (\Exception $e) {
+            Log::error('Error al crear inscripción: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al guardar la inscripción.'], 500);
+        }
     }
 
     public function index(Request $request)
@@ -43,9 +48,12 @@ class EnrollmentController extends Controller
         if (!$enrollment) {
             return response()->json(['error' => 'Inscripción no encontrada'], 404);
         }
-
-        $enrollment->delete();
-
-        return response()->json(['message' => 'Inscripción eliminada']);
+        try {
+            $enrollment->delete();
+            return response()->json(['message' => 'Inscripción eliminada']);
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar inscripcion: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al eliminar la inscripción.'], 500);
+        }
     }
 }

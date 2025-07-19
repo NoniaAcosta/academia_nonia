@@ -21,4 +21,18 @@ class Course extends Model
             ->withPivot('enrolled_at')
             ->withTimestamps();
     }
+
+    public static function existeDuplicado($datos, $exceptId = null)
+    {
+        $query = self::where('title', $datos['title'])
+            ->where('description', $datos['description'])
+            ->where('start_date', $datos['start_date'])
+            ->where('end_date', $datos['end_date']);
+
+        if ($exceptId) {
+            $query->where('id', '!=', $exceptId);
+        }
+
+        return $query->exists();
+    }
 }

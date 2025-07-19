@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        return response()->json(Student::all(), 200);
+        $perPage = $request->get('per_page', 10); // Usa 10 si no se envía per_page
+        $students = Student::paginate($perPage);
+        return response()->json($students->items());
     }
 
     /**
@@ -26,9 +27,13 @@ class StudentController extends Controller
             'birthdate' => 'required|date',
             'nationality' => 'required|string',
         ]);
-
-        $student = Student::create($validated);
-        return response()->json(['message' => 'Registro insertado correctamente', 'registro' => $student], 201);
+        try {
+            $student = Student::create($validated);
+            return response()->json(['message' => 'Registro insertado correctamente', 'registro' => $student], 201);
+        } catch (\Exception $e) {
+            Log::error('Error al crear estudiante: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al guardar el estudiante.'], 500);
+        }
     }
 
     /**
@@ -59,9 +64,13 @@ class StudentController extends Controller
             'birthdate' => 'sometimes|date',
             'nationality' => 'sometimes|string',
         ]);
-
-        $student->update($validated);
-        return response()->json(['message' => 'Registro actualizado correctamente', 'datos' => $student], 200);
+        try {
+            $student->update($validated);
+            return response()->json(['message' => 'Registro actualizado correctamente', 'data' => $student], 200);
+        } catch (\Exception $e) {
+            Log::error('Error al actualizar estudiante: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al actualizar el estudiante.'], 500);
+        }
     }
 
     /**
@@ -73,8 +82,12 @@ class StudentController extends Controller
         if (!$student) {
             return response()->json(['message' => 'Estudiante no encontrado'], 404);
         }
-
-        $student->delete();
-        return response()->json(['message' => 'Estudiante eliminado'], 200);
+        try {
+            $student->delete();
+            return response()->json(['message' => 'Estudiante eliminado'], 200);
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar estudiante: ' . $e->getMessage());
+            return response()->json(['message' => 'Ocurrió un error al eliminar el estudiante.'], 500);
+        }
     }
 }
