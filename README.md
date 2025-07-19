@@ -3,7 +3,7 @@
 
 Esta Api Contiene los endpoints para la Gestión Académica que incluye básicamente:
 -Gestión de Cursos.
--Gestón de Alumnos.
+-Gestión de Alumnos.
 -Gestión de Inscripciones
 
 ## Resumen Tecnologías utilizadas
@@ -47,7 +47,7 @@ En la siguiente ruta: http://127.0.0.1:8000/docs
     8. Levanta el servidor local
             php artisan serve
 
-## Coleccion de Postman
+## Colección de Postman
 
 La coleccion de Postman y el environment se encuentra dentro del proyecto en la carpeta Postman.
 
