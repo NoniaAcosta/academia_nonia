@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Log;
 
 class EnrollmentController extends Controller
 {
+    /**
+     * Registra la matriculacion por student_id y course_id,  
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -27,7 +33,13 @@ class EnrollmentController extends Controller
             return response()->json(['message' => 'Ocurrió un error al guardar la inscripción.'], 500);
         }
     }
-
+    
+    /**
+     * Lista de inscripciones por student_id o course_id
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
         if ($request->has('student_id')) {
@@ -41,6 +53,12 @@ class EnrollmentController extends Controller
         return response()->json(['error' => 'Debe enviar student_id o course_id'], 400);
     }
 
+    /**
+     * Eliminar una inscripcion
+     *
+     * @param  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function destroy($id)
     {
         $enrollment = Enrollment::find($id);

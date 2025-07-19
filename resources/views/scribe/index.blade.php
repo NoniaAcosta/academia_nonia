@@ -72,52 +72,55 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-register">
-                                <a href="#endpoints-POSTapi-auth-register">POST api/auth/register</a>
+                                <a href="#endpoints-POSTapi-auth-register">Registro de usuario</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-login">
-                                <a href="#endpoints-POSTapi-auth-login">POST api/auth/login</a>
+                                <a href="#endpoints-POSTapi-auth-login">Login para el usuario</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-logout">
-                                <a href="#endpoints-POSTapi-auth-logout">POST api/auth/logout</a>
+                                <a href="#endpoints-POSTapi-auth-logout">Cerrar sesion de usuario</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-students">
-                                <a href="#endpoints-GETapi-students">GET api/students</a>
+                                <a href="#endpoints-GETapi-students">Listar Alumnos</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-students">
-                                <a href="#endpoints-POSTapi-students">Store a newly created resource in storage.</a>
+                                <a href="#endpoints-POSTapi-students">Registro de alumnos</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-students--id-">
-                                <a href="#endpoints-GETapi-students--id-">Display the specified resource.</a>
+                                <a href="#endpoints-GETapi-students--id-">Listado de estudiantes por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-students--id-">
-                                <a href="#endpoints-PUTapi-students--id-">Update the specified resource in storage.</a>
+                                <a href="#endpoints-PUTapi-students--id-">Actualizar estudiante por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-students--id-">
-                                <a href="#endpoints-DELETEapi-students--id-">Remove the specified resource from storage.</a>
+                                <a href="#endpoints-DELETEapi-students--id-">Eliminar estudiante por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-courses">
-                                <a href="#endpoints-GETapi-courses">Display a listing of the resource.</a>
+                                <a href="#endpoints-GETapi-courses">Listar cursos completos</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-courses">
-                                <a href="#endpoints-POSTapi-courses">Store a newly created resource in storage.</a>
+                                <a href="#endpoints-POSTapi-courses">Registrar Cursos</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-courses--id-">
-                                <a href="#endpoints-GETapi-courses--id-">Display the specified resource.</a>
+                                <a href="#endpoints-GETapi-courses--id-">Listar cursos por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-courses--id-">
-                                <a href="#endpoints-PUTapi-courses--id-">Update the specified resource in storage.</a>
+                                <a href="#endpoints-PUTapi-courses--id-">Actualizar cursos por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-courses--id-">
-                                <a href="#endpoints-DELETEapi-courses--id-">Remove the specified resource from storage.</a>
+                                <a href="#endpoints-DELETEapi-courses--id-">Eliminar cursos por id</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-enrollments">
-                                <a href="#endpoints-POSTapi-enrollments">POST api/enrollments</a>
+                                <a href="#endpoints-POSTapi-enrollments">Registra la matriculacion por student_id y course_id,</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-enrollments">
-                                <a href="#endpoints-GETapi-enrollments">GET api/enrollments</a>
+                                <a href="#endpoints-GETapi-enrollments">Lista de inscripciones por student_id o course_id</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-enrollments--id-">
-                                <a href="#endpoints-POSTapi-enrollments--id-">POST api/enrollments/{id}</a>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-enrollments--id-">
+                                <a href="#endpoints-DELETEapi-enrollments--id-">Eliminar una inscripcion</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-students">
+                                <a href="#endpoints-GETapi-v2-students">Retorna la lista de estudiantes por pagina</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -139,11 +142,11 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://127.0.0.1:8000</code>
 </aside>
 <pre><code>Esta documentación provee información sobre la API de Gestión Académica.
 
-&lt;aside&gt;Funciona Básicamente para crear estudiantes, cursos y matriculaciones, asi también tiene autenticación básica&lt;/aside&gt;</code></pre>
+Funciona Básicamente para crear estudiantes, cursos y matriculaciones, asi también tiene autenticación básica</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
@@ -154,7 +157,7 @@
 
     
 
-                                <h2 id="endpoints-POSTapi-auth-register">POST api/auth/register</h2>
+                                <h2 id="endpoints-POSTapi-auth-register">Registro de usuario</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -323,7 +326,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-auth-login">POST api/auth/login</h2>
+                    <h2 id="endpoints-POSTapi-auth-login">Login para el usuario</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -479,7 +482,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-auth-logout">POST api/auth/logout</h2>
+                    <h2 id="endpoints-POSTapi-auth-logout">Cerrar sesion de usuario</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -601,7 +604,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-students">GET api/students</h2>
+                    <h2 id="endpoints-GETapi-students">Listar Alumnos</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -739,7 +742,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-students">Store a newly created resource in storage.</h2>
+                    <h2 id="endpoints-POSTapi-students">Registro de alumnos</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -760,7 +763,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"name\": \"consequatur\",
     \"email\": \"carolyne.luettgen@example.org\",
-    \"birthdate\": \"2025-07-19T03:12:46\",
+    \"birthdate\": \"2025-07-19T18:20:03\",
     \"nationality\": \"consequatur\"
 }"
 </code></pre></div>
@@ -780,7 +783,7 @@ const headers = {
 let body = {
     "name": "consequatur",
     "email": "carolyne.luettgen@example.org",
-    "birthdate": "2025-07-19T03:12:46",
+    "birthdate": "2025-07-19T18:20:03",
     "nationality": "consequatur"
 };
 
@@ -903,10 +906,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birthdate"                data-endpoint="POSTapi-students"
-               value="2025-07-19T03:12:46"
+               value="2025-07-19T18:20:03"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-19T03:12:46</code></p>
+<p>Must be a valid date. Example: <code>2025-07-19T18:20:03</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nationality</code></b>&nbsp;&nbsp;
@@ -921,7 +924,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-students--id-">Display the specified resource.</h2>
+                    <h2 id="endpoints-GETapi-students--id-">Listado de estudiantes por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1071,7 +1074,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-students--id-">Update the specified resource in storage.</h2>
+                    <h2 id="endpoints-PUTapi-students--id-">Actualizar estudiante por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1091,7 +1094,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"consequatur\",
-    \"birthdate\": \"2025-07-19T03:12:46\",
+    \"birthdate\": \"2025-07-19T18:20:03\",
     \"nationality\": \"consequatur\"
 }"
 </code></pre></div>
@@ -1110,7 +1113,7 @@ const headers = {
 
 let body = {
     "name": "consequatur",
-    "birthdate": "2025-07-19T03:12:46",
+    "birthdate": "2025-07-19T18:20:03",
     "nationality": "consequatur"
 };
 
@@ -1249,10 +1252,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="birthdate"                data-endpoint="PUTapi-students--id-"
-               value="2025-07-19T03:12:46"
+               value="2025-07-19T18:20:03"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-19T03:12:46</code></p>
+<p>Must be a valid date. Example: <code>2025-07-19T18:20:03</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nationality</code></b>&nbsp;&nbsp;
@@ -1267,7 +1270,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-DELETEapi-students--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="endpoints-DELETEapi-students--id-">Eliminar estudiante por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1401,7 +1404,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-courses">Display a listing of the resource.</h2>
+                    <h2 id="endpoints-GETapi-courses">Listar cursos completos</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1539,7 +1542,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-courses">Store a newly created resource in storage.</h2>
+                    <h2 id="endpoints-POSTapi-courses">Registrar Cursos</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1560,8 +1563,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"vmqeopfuudtdsufvyvddq\",
     \"description\": \"Dolores dolorum amet iste laborum eius est dolor.\",
-    \"start_date\": \"2025-07-19T03:12:46\",
-    \"end_date\": \"2106-08-17\"
+    \"start_date\": \"2025-07-19T18:20:03\",
+    \"end_date\": \"2106-08-18\"
 }"
 </code></pre></div>
 
@@ -1580,8 +1583,8 @@ const headers = {
 let body = {
     "title": "vmqeopfuudtdsufvyvddq",
     "description": "Dolores dolorum amet iste laborum eius est dolor.",
-    "start_date": "2025-07-19T03:12:46",
-    "end_date": "2106-08-17"
+    "start_date": "2025-07-19T18:20:03",
+    "end_date": "2106-08-18"
 };
 
 fetch(url, {
@@ -1703,10 +1706,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="POSTapi-courses"
-               value="2025-07-19T03:12:46"
+               value="2025-07-19T18:20:03"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-19T03:12:46</code></p>
+<p>Must be a valid date. Example: <code>2025-07-19T18:20:03</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -1714,14 +1717,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_date"                data-endpoint="POSTapi-courses"
-               value="2106-08-17"
+               value="2106-08-18"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2106-08-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2106-08-18</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-courses--id-">Display the specified resource.</h2>
+                    <h2 id="endpoints-GETapi-courses--id-">Listar cursos por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1871,7 +1874,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-courses--id-">Update the specified resource in storage.</h2>
+                    <h2 id="endpoints-PUTapi-courses--id-">Actualizar cursos por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1892,8 +1895,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"title\": \"vmqeopfuudtdsufvyvddq\",
     \"description\": \"Dolores dolorum amet iste laborum eius est dolor.\",
-    \"start_date\": \"2025-07-19T03:12:46\",
-    \"end_date\": \"2106-08-17\"
+    \"start_date\": \"2025-07-19T18:20:03\",
+    \"end_date\": \"2106-08-18\"
 }"
 </code></pre></div>
 
@@ -1912,8 +1915,8 @@ const headers = {
 let body = {
     "title": "vmqeopfuudtdsufvyvddq",
     "description": "Dolores dolorum amet iste laborum eius est dolor.",
-    "start_date": "2025-07-19T03:12:46",
-    "end_date": "2106-08-17"
+    "start_date": "2025-07-19T18:20:03",
+    "end_date": "2106-08-18"
 };
 
 fetch(url, {
@@ -2051,10 +2054,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="PUTapi-courses--id-"
-               value="2025-07-19T03:12:46"
+               value="2025-07-19T18:20:03"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-07-19T03:12:46</code></p>
+<p>Must be a valid date. Example: <code>2025-07-19T18:20:03</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -2062,14 +2065,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="end_date"                data-endpoint="PUTapi-courses--id-"
-               value="2106-08-17"
+               value="2106-08-18"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2106-08-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2106-08-18</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-DELETEapi-courses--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="endpoints-DELETEapi-courses--id-">Eliminar cursos por id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2203,7 +2206,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="endpoints-POSTapi-enrollments">POST api/enrollments</h2>
+                    <h2 id="endpoints-POSTapi-enrollments">Registra la matriculacion por student_id y course_id,</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2359,7 +2362,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-enrollments">GET api/enrollments</h2>
+                    <h2 id="endpoints-GETapi-enrollments">Lista de inscripciones por student_id o course_id</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2497,7 +2500,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-enrollments--id-">POST api/enrollments/{id}</h2>
+                    <h2 id="endpoints-DELETEapi-enrollments--id-">Eliminar una inscripcion</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2505,12 +2508,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-enrollments--id-">
+<span id="example-requests-DELETEapi-enrollments--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
+    <pre><code class="language-bash">curl --request DELETE \
     "http://localhost/api/enrollments/consequatur" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
@@ -2529,58 +2532,58 @@ const headers = {
 };
 
 fetch(url, {
-    method: "POST",
+    method: "DELETE",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-enrollments--id-">
+<span id="example-responses-DELETEapi-enrollments--id-">
 </span>
-<span id="execution-results-POSTapi-enrollments--id-" hidden>
+<span id="execution-results-DELETEapi-enrollments--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-enrollments--id-"></span>:
+                id="execution-response-status-DELETEapi-enrollments--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-enrollments--id-"
+    <pre class="json"><code id="execution-response-content-DELETEapi-enrollments--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-enrollments--id-" hidden>
+<span id="execution-error-DELETEapi-enrollments--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-enrollments--id-">
+    <pre><code id="execution-error-message-DELETEapi-enrollments--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-enrollments--id-" data-method="POST"
+<form id="form-DELETEapi-enrollments--id-" data-method="DELETE"
       data-path="api/enrollments/{id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-enrollments--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-enrollments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-enrollments--id-"
-                    onclick="tryItOut('POSTapi-enrollments--id-');">Try it out ⚡
+                    id="btn-tryout-DELETEapi-enrollments--id-"
+                    onclick="tryItOut('DELETEapi-enrollments--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-enrollments--id-"
-                    onclick="cancelTryOut('POSTapi-enrollments--id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-DELETEapi-enrollments--id-"
+                    onclick="cancelTryOut('DELETEapi-enrollments--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-enrollments--id-"
+                    id="btn-executetryout-DELETEapi-enrollments--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
+            <small class="badge badge-red">DELETE</small>
             <b><code>api/enrollments/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
@@ -2589,7 +2592,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-enrollments--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-enrollments--id-"
                value="Bearer {YOUR_AUTH_KEY}"
                data-component="header">
     <br>
@@ -2600,7 +2603,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-enrollments--id-"
+                              name="Content-Type"                data-endpoint="DELETEapi-enrollments--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2611,7 +2614,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-enrollments--id-"
+                              name="Accept"                data-endpoint="DELETEapi-enrollments--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2623,13 +2626,151 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="id"                data-endpoint="POSTapi-enrollments--id-"
+                              name="id"                data-endpoint="DELETEapi-enrollments--id-"
                value="consequatur"
                data-component="url">
     <br>
 <p>The ID of the enrollment. Example: <code>consequatur</code></p>
             </div>
                     </form>
+
+                    <h2 id="endpoints-GETapi-v2-students">Retorna la lista de estudiantes por pagina</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-students">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v2/students" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v2/students"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-students">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-students" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-students"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-students"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-students" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-students">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v2-students" data-method="GET"
+      data-path="api/v2/students"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-students', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v2-students"
+                    onclick="tryItOut('GETapi-v2-students');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v2-students"
+                    onclick="cancelTryOut('GETapi-v2-students');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v2-students"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/students</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v2-students"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v2-students"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v2-students"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
 
             
 

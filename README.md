@@ -47,6 +47,9 @@ En la siguiente ruta: http://127.0.0.1:8000/docs
     8. Levanta el servidor local
             php artisan serve
 
+## Coleccion de Postman
+
+La coleccion de Postman y el environment se encuentra dentro del proyecto en la carpeta Postman.
 
 ## License
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V2;
 
+use App\Http\Controllers\Controller;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 class StudentController extends Controller
 {
     /**
-     * Listar Alumnos
+     * Retorna la lista de estudiantes por pagina
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -18,15 +19,19 @@ class StudentController extends Controller
     {
         $perPage = $request->get('per_page', 10); // Usa 10 si no se envía per_page
         $students = Student::paginate($perPage);
-        return response()->json($students->items());
+        return response()->json(
+            [   'version'=>'2',
+                'students'=>$students->items()
+            ]
+        );
     }
 
-    /**
-     * Registro de alumnos
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
-     */
+   /**
+    * Registra un estudiante
+    *
+    * @param Request $request
+    * @return \Illuminate\Http\JsonResponse
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -44,12 +49,12 @@ class StudentController extends Controller
         }
     }
 
-   /**
-    * Listado de estudiantes por id
-    *
-    * @param int $id
-    * @return \Illuminate\Http\JsonResponse
-    */
+    /**
+     * Permite vizualizar estudiante por id
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(int $id)
     {
         $student = Student::find($id);
@@ -60,7 +65,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Actualizar estudiante por id
+     * Permite actualizar el registro por el Id del estudiante 
      *
      * @param Request $request
      * @param int $id
@@ -89,7 +94,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Eliminar estudiante por id
+     * Permite Eliminar un estudiante por su ID
      *
      * @param int $id
      * @return \Illuminate\Http\JsonResponse

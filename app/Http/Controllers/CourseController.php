@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Log;
 class CourseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Listar cursos completos
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -17,7 +19,10 @@ class CourseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Registrar Cursos
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -42,9 +47,12 @@ class CourseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Listar cursos por id
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         $course = Course::find($id);
         if (!$course) {
@@ -53,10 +61,14 @@ class CourseController extends Controller
         return response()->json($course, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+   /**
+    * Actualizar cursos por id
+    *
+    * @param Request $request
+    * @param integer $id
+    * @return \Illuminate\Http\JsonResponse
+    */
+    public function update(Request $request, int $id)
     {
         $course = Course::find($id);
         if (!$course) {
@@ -84,9 +96,12 @@ class CourseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar cursos por id
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $course = Course::find($id);
         if (!$course) {

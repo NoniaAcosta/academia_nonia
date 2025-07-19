@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    /**
+     * Registro de usuario
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request)
     {
         $request->validate([
@@ -25,7 +31,12 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Usuario creado'], 201);
     }
-
+    /**
+     * Login para el usuario
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $request->validate([
@@ -43,7 +54,12 @@ class AuthController extends Controller
 
         return response()->json(['token' => $token]);
     }
-
+    /**
+     * Cerrar sesion de usuario
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logout(Request $request)
     {
         $request->user()->tokens()->delete();

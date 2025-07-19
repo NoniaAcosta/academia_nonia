@@ -10,7 +10,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Registro de usuario'
       description: ''
       authenticated: true
       custom: []
@@ -77,7 +77,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Login para el usuario'
       description: ''
       authenticated: true
       custom: []
@@ -133,7 +133,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Cerrar sesion de usuario'
       description: ''
       authenticated: true
       custom: []
@@ -167,7 +167,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Listar Alumnos'
       description: ''
       authenticated: true
       custom: []
@@ -210,7 +210,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: 'Registro de alumnos'
       description: ''
       authenticated: true
       custom: []
@@ -247,7 +247,7 @@ endpoints:
         name: birthdate
         description: 'Must be a valid date.'
         required: true
-        example: '2025-07-19T03:12:46'
+        example: '2025-07-19T18:20:03'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -266,7 +266,7 @@ endpoints:
     cleanBodyParameters:
       name: consequatur
       email: carolyne.luettgen@example.org
-      birthdate: '2025-07-19T03:12:46'
+      birthdate: '2025-07-19T18:20:03'
       nationality: consequatur
     fileParameters: []
     responses: []
@@ -288,7 +288,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
+      title: 'Listado de estudiantes por id'
       description: ''
       authenticated: true
       custom: []
@@ -343,7 +343,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
+      title: 'Actualizar estudiante por id'
       description: ''
       authenticated: true
       custom: []
@@ -391,7 +391,7 @@ endpoints:
         name: birthdate
         description: 'Must be a valid date.'
         required: false
-        example: '2025-07-19T03:12:46'
+        example: '2025-07-19T18:20:03'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -409,7 +409,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       name: consequatur
-      birthdate: '2025-07-19T03:12:46'
+      birthdate: '2025-07-19T18:20:03'
       nationality: consequatur
     fileParameters: []
     responses: []
@@ -431,7 +431,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
+      title: 'Eliminar estudiante por id'
       description: ''
       authenticated: true
       custom: []
@@ -476,7 +476,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a listing of the resource.'
+      title: 'Listar cursos completos'
       description: ''
       authenticated: true
       custom: []
@@ -519,7 +519,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: 'Registrar Cursos'
       description: ''
       authenticated: true
       custom: []
@@ -556,7 +556,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date.'
         required: true
-        example: '2025-07-19T03:12:46'
+        example: '2025-07-19T18:20:03'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -566,7 +566,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a date after or equal to <code>start_date</code>.'
         required: true
-        example: '2106-08-17'
+        example: '2106-08-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -575,8 +575,8 @@ endpoints:
     cleanBodyParameters:
       title: vmqeopfuudtdsufvyvddq
       description: 'Dolores dolorum amet iste laborum eius est dolor.'
-      start_date: '2025-07-19T03:12:46'
-      end_date: '2106-08-17'
+      start_date: '2025-07-19T18:20:03'
+      end_date: '2106-08-18'
     fileParameters: []
     responses: []
     responseFields: []
@@ -597,7 +597,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
+      title: 'Listar cursos por id'
       description: ''
       authenticated: true
       custom: []
@@ -652,7 +652,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
+      title: 'Actualizar cursos por id'
       description: ''
       authenticated: true
       custom: []
@@ -700,7 +700,7 @@ endpoints:
         name: start_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-07-19T03:12:46'
+        example: '2025-07-19T18:20:03'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -710,7 +710,7 @@ endpoints:
         name: end_date
         description: 'Must be a valid date. Must be a date after or equal to <code>start_date</code>.'
         required: false
-        example: '2106-08-17'
+        example: '2106-08-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -719,8 +719,8 @@ endpoints:
     cleanBodyParameters:
       title: vmqeopfuudtdsufvyvddq
       description: 'Dolores dolorum amet iste laborum eius est dolor.'
-      start_date: '2025-07-19T03:12:46'
-      end_date: '2106-08-17'
+      start_date: '2025-07-19T18:20:03'
+      end_date: '2106-08-18'
     fileParameters: []
     responses: []
     responseFields: []
@@ -741,7 +741,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
+      title: 'Eliminar cursos por id'
       description: ''
       authenticated: true
       custom: []
@@ -786,7 +786,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Registra la matriculacion por student_id y course_id,'
       description: ''
       authenticated: true
       custom: []
@@ -842,7 +842,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Lista de inscripciones por student_id o course_id'
       description: ''
       authenticated: true
       custom: []
@@ -878,14 +878,14 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
+      - DELETE
     uri: 'api/enrollments/{id}'
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Eliminar una inscripcion'
       description: ''
       authenticated: true
       custom: []
@@ -912,6 +912,49 @@ endpoints:
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v2/students
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retorna la lista de estudiantes por pagina'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
